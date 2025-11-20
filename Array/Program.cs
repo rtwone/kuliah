@@ -99,8 +99,7 @@ namespace Array
             {
                 Console.Write("{0}.  Nama   : ", urut + 1);
                 nama[urut] = Console.ReadLine();
-                if (nama[urut] == "")
-                {
+                if (nama[urut] == "") {
                     urut++;
                     break;
                 }
@@ -110,18 +109,14 @@ namespace Array
             } while ((urut < nama.Length) && (nama[urut - 1] != ""));
 
             Console.WriteLine("\nData Nama dan Nilai yang di Input :");
-            for (int a = 0; a < urut - 1; a++)
-            {
+            for (int a = 0; a < urut - 1; a++) {
                 Console.WriteLine("{0}. {1} ({2})", a + 1, nama[a], nilai[a]);
             }
 
             Console.WriteLine("\nData Nama dan Nilai yang telah di Sortir :");
-            for (int i = 0; i < urut - 1; i++)
-            {
-                for (int a = i + 1; a < urut - 1; a++)
-                {
-                    if (string.Compare(nama[i], nama[a]) > 0)
-                    {
+            for (int i = 0; i < urut - 1; i++) {
+                for (int a = i + 1; a < urut - 1; a++) {
+                    if (string.Compare(nama[i], nama[a]) > 0) {
                         string temp = nama[i]; int temp2 = nilai[i];
                         nama[i] = nama[a]; nilai[i] = nilai[a];
                         nama[a] = temp; nilai[a] = temp2;
@@ -131,37 +126,22 @@ namespace Array
             for (int a = 0; a < urut - 1; a++)
                 Console.WriteLine("{0}. {1} ({2})", a + 1, nama[a], nilai[a]);
 
-            Console.WriteLine("\nData Nilai Tertinggi :");
-            for (int i = 0; i < urut - 1; i++)
-            {
-                for (int a = i + 1; a < urut - 1; a++)
-                {
-                    if (nilai[a] > nilai[i])
-                    {
-                        int temp = nilai[i]; string temp2 = nama[i];
+            for (int i = 0; i < urut - 1; i++) {
+                for (int a = i + 1; a < urut - 1; a++) {
+                    if (nilai[a] < nilai[i]) {
+                        int temp = nilai[i]; string temps = nama[i];
                         nilai[i] = nilai[a]; nama[i] = nama[a];
-                        nilai[a] = temp; nama[a] = temp2;
+                        nilai[a] = temp; nama[a] = temps;
                     }
                 }
             }
-            for (int a = 0; a < urut - 1; a++)
-                Console.WriteLine("{0}. ({1}) {2}", a + 1, nilai[a], nama[a]);
 
-            Console.WriteLine("\nData Nilai Terendah :");
-            for (int i = 0; i < urut - 1; i++)
-            {
-                for (int a = i + 1; a < urut - 1; a++)
-                {
-                    if (nilai[a] < nilai[i])
-                    {
-                        int temp = nilai[i]; string temp2 = nama[i];
-                        nilai[i] = nilai[a]; nama[i] = nama[a];
-                        nilai[a] = temp; nama[a] = temp2;
-                    }
-                }
-            }
-            for (int a = 0; a < urut - 1; a++)
-                Console.WriteLine("{0}. ({1}) {2}", a + 1, nilai[a], nama[a]);
+            Console.WriteLine("\n- Nilai Tertinggi");
+            Console.WriteLine($"       Nama  : {nama[urut - 2]}");
+            Console.WriteLine($"       Nilai : {nilai[urut - 2]}");
+            Console.WriteLine("\n- Nilai Terendah :");
+            Console.WriteLine($"       Nama  : {nama[0]}");
+            Console.WriteLine($"       Nilai : {nilai[0]}");
 
             Console.ReadKey();
         }
